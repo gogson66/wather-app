@@ -11,9 +11,9 @@ const forecast = function(latitude, longitude, callback) {
         if (error) callback('Can not make connection with weather service', undefined);
         else if (response.body.error) callback('Can not find location', undefined);
         else {
-            const {temperature, feelslike, weather_descriptions: [weatherDescription] } = response.body.current
+            const {temperature, feelslike, weather_descriptions: [weatherDescription], humidity } = response.body.current
     
-            callback(undefined,`${weatherDescription}. It is currently ${temperature} degree and it feels like ${feelslike} degree.`)  
+            callback(undefined,`${weatherDescription}. It is currently ${temperature} degree and it feels like ${feelslike} degree. Humidity is ${humidity}`)  
         
         }
         
